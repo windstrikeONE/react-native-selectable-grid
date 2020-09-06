@@ -44,6 +44,17 @@ class SelectableGrid extends Component {
     }
   };
 
+  componentDidMount() {
+    if (this.props.initalSelected != null) {
+      try {
+        this.handleSelectItem(this.props.initalSelected);
+      } catch (e) {
+        console.log("problem selecting init.", e);
+      }
+
+    }
+  }
+
   handleSelectItem = keyValue => {
     const { maxSelect, onSelect } = this.props;
     const { selectedItem, itemsArray } = this.state;
@@ -102,7 +113,7 @@ class SelectableGrid extends Component {
                 styles.contentBox,
                 unselectedStyle,
                 (selectedItem === keyValue || itemsArray.includes(keyValue)) &&
-                  selectedStyle,
+                selectedStyle,
                 height == null ? { aspectRatio: 1 } : { height },
                 {
                   flex: 1

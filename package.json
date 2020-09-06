@@ -1,0 +1,64 @@
+{
+  "_from": "react-native-selectable-grid",
+  "_id": "react-native-selectable-grid@0.3.1",
+  "_inBundle": false,
+  "_integrity": "sha512-9HVZwZwQWb4S3HW3fGOusNu1kuVPkzPX4WFNnJ4Oy48t99/o6dzOGjGGwNbtMHeP+OFaOGCP216dkXxKUOC84A==",
+  "_location": "/react-native-selectable-grid",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "react-native-selectable-grid",
+    "name": "react-native-selectable-grid",
+    "escapedName": "react-native-selectable-grid",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-selectable-grid/-/react-native-selectable-grid-0.3.1.tgz",
+  "_shasum": "f0c8a6e1612c93fd82f176be01486e3ebf2628a9",
+  "_spec": "react-native-selectable-grid",
+  "_where": "/Volumes/WorkDrive/projects/mpm2",
+  "author": {
+    "name": "Reza Syahzan",
+    "email": "cyphereza@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/cyphereza/react-native-selectable-grid/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "prop-types": "^15.5.10"
+  },
+  "deprecated": false,
+  "description": "Selectable (none, one or more) grid buttons for react-native.",
+  "homepage": "https://github.com/cyphereza/react-native-selectable-grid#readme",
+  "keywords": [
+    "react",
+    "native",
+    "selectable",
+    "grid",
+    "buttons",
+    "layout",
+    "calendar",
+    "schedule"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "react-native-selectable-grid",
+  "peerDependencies": {
+    "react-native": ">= 0.47.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyphereza/react-native-selectable-grid.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.3.1"
+}

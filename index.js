@@ -23,6 +23,8 @@ class SelectableGrid extends Component {
   };
 
   selectedData = () => {
+    //This will return previously selected if used in onSelect function
+    //use _index to get index of previous selected in onSelect
     const { data, maxSelect } = this.props;
     const { itemsArray, selectedItem } = this.state;
 
@@ -30,6 +32,12 @@ class SelectableGrid extends Component {
       if (selectedItem === -1) {
         return null;
       }
+      try {
+        data[selectedItem]["_index"] = selectedItem;
+      } catch (e) {
+        console.log("problem with selected item");
+      }
+
       return data[selectedItem];
     } else if (maxSelect > 1) {
       const selectedDataArray = [];
@@ -60,17 +68,23 @@ class SelectableGrid extends Component {
     const { selectedItem, itemsArray } = this.state;
 
     if (maxSelect === 1) {
-      this.setState({
-        selectedItem: selectedItem === keyValue ? null : keyValue
-      });
-      onSelect(selectedItem === keyValue ? null : keyValue);
+      if ((this.props.canHaveNoneSelected == false) && selectedItem === keyValue) {
+        // console.log("removing BUT NAH we blocked it")
+        onSelect(selectedItem);
+      } else {
+        this.setState({
+          selectedItem: selectedItem === keyValue ? null : keyValue
+        }, () => {
+          onSelect(selectedItem);
+        });
+      }
+
     } else if (maxSelect > 1) {
       const newItemsArray = itemsArray;
 
       // Check if keyValue already exist in array
       const itemIndex =
         newItemsArray.length > 0 ? this.getIndex(keyValue, newItemsArray) : -1;
-
       // If item found in array
       if (itemIndex > -1) {
         newItemsArray.splice(itemIndex, 1);

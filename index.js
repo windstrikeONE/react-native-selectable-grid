@@ -52,14 +52,30 @@ class SelectableGrid extends Component {
     }
   };
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.initalSelected != this.props.initalSelected) { 
+      // incase init select changes...
+      this.selectInit(nextProps.initalSelected);
+    }
+    return true;
+  }
+
   componentDidMount() {
     if (this.props.initalSelected != null) {
-      try {
-        this.handleSelectItem(this.props.initalSelected);
-      } catch (e) {
-        console.log("problem selecting init.", e);
-      }
+      this.selectInit(this.props.initalSelected)
+      // try {
+      //   this.handleSelectItem(this.props.initalSelected);
+      // } catch (e) {
+      //   console.log("problem selecting init.", e);
+      // }
+    }
+  }
 
+  selectInit = (index) => {
+    try {
+      this.handleSelectItem(index);
+    } catch (e) {
+      console.log("problem selecting init.", e);
     }
   }
 
